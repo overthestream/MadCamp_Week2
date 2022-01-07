@@ -9,6 +9,7 @@ import SignInScreen from './SignInScreen';
 import SelectMatchScreen from './SelectMatchScreen';
 import ChemiMatchScreen from './ChemiMatchScreen';
 import ChattingRoomScreen from './ChattingRoomScreen';
+import FriendDetailScreen from './FriendDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const StackNavigator = () => {
                 <Stack.Screen options={{headerShown: false}} name="SelectMatchScreen" component={SelectMatchScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="ChemiMatchScreen" component={ChemiMatchScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="ChattingRoomScreen" component={ChattingRoomScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="FriendDetailScreen" component={FriendDetailScreen}/>
             </Stack.Navigator>
     )
 }
