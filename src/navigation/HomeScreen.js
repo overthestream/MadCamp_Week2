@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 import { NavigationService } from '../common';
 
-const HomeScreen = props => {
+const HomeScreen = ({ navigation }) => {
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
                 <TouchableOpacity
-                    onPress={()=> NavigationService.navigate('SelectMatchScreen', {
-                        screen: 'ChemiMatchScreen',
-                        info: 'information'
-                    })}
+                    onPress={()=> navigation.navigate('SelectMatchScreen')}
                     style={{
                         justifyContent: 'flex-end',
                         backgroundColor: '#FF9776',
@@ -23,10 +20,7 @@ const HomeScreen = props => {
                     <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>선택랜덤매칭</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={()=> NavigationService.navigate('ChemiMatchScreen', {
-                        screen: 'ChemiMatchScreen',
-                        info: 'information'
-                    })}
+                    onPress={()=> navigation.navigate('ChemiMatchScreen')}
                     style={{
                         justifyContent: 'flex-end',
                         backgroundColor: '#FF9776',

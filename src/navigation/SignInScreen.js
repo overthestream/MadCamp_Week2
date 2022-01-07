@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 import { NavigationService } from '../common';
 
-const SignInScreen = props => {
+const SignInScreen = ({ navigation }) => {
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
                 <TouchableOpacity
-                        onPress={()=> NavigationService.back()}
+                        onPress={()=> navigation.back()}
                         style={{
                             justifyContent: 'flex-end',
                             backgroundColor: '#FF9776',

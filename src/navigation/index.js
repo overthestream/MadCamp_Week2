@@ -1,35 +1,28 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigator from '../common/DrawerNavigator';
+import TabNavigator from '../common/TabNavigator';
 import InitialScreen from './InitialScreen';
 import HomeScreen from './HomeScreen';
 import SignInScreen from './SignInScreen';
 import SelectMatchScreen from './SelectMatchScreen';
 import ChemiMatchScreen from './ChemiMatchScreen';
+import ChattingRoomScreen from './ChattingRoomScreen';
 
-const AuthStack = createStackNavigator(
-    {
-        InitialScreen: {screen: InitialScreen, navigationOptions: { headerShown: false, }},
-        HomeScreen: {screen: HomeScreen, navigationOptions: { headerShown: false,}},
-        SignInScreen: {screen: SignInScreen, navigationOptions: { headerShown: false,}},
-        SelectMatchScreen: {screen: SelectMatchScreen, navigationOptions: { headerShown: false,}},
-        ChemiMatchScreen: {screen: ChemiMatchScreen, navigationOptions: { headerShown: false,}},
-    },
-    {
-        initialRouteName: 'InitialScreen',
-        navigationOptions: {
-            header: null,
-        },
-    },
-);
+const Stack = createStackNavigator();
 
-// 최상단 네비게이터
-const AppNavigator = createSwitchNavigator(
-    {
-        Auth: AuthStack
-    },
-    {
-        initialRouteName: 'Auth',
-    }
-);
+const StackNavigator = () => {
+    return(
+            <Stack.Navigator initialRouteName='InitialScreen'>
+                <Stack.Screen options={{headerShown: false}} name="InitialScreen" component={InitialScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={TabNavigator}/>
+                <Stack.Screen options={{headerShown: false}} name="SignInScreen" component={SignInScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="SelectMatchScreen" component={SelectMatchScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="ChemiMatchScreen" component={ChemiMatchScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="ChattingRoomScreen" component={ChattingRoomScreen}/>
+            </Stack.Navigator>
+    )
+}
 
-export default createAppContainer(AppNavigator);
+export { StackNavigator };

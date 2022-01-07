@@ -14,7 +14,7 @@ const MBTIitem = ({type, imageResource}) => {
                             marginBottom: 20,
                             borderRadius: 50,
                             width: '10.5%',
-                            height: '32%',
+                            height: '37%',
                             borderWidth: 3,
                             borderStyle: 'dashed',
                             borderColor: select== false ? '#808080' : '#8A94FF',
@@ -26,7 +26,7 @@ const MBTIitem = ({type, imageResource}) => {
     );
 }
 
-const SelectMatchScreen = props => {
+const SelectMatchScreen = ({ navigation }) => {
     return(
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}
@@ -53,6 +53,7 @@ const SelectMatchScreen = props => {
                 <MBTIitem type="ESFJ" imageResource={require("../img/ESFJ.png")}/>
             </ScrollView>
             <TouchableOpacity
+                onPress={() => navigation.navigate("ChattingRoomScreen")}
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#FF9776',
@@ -82,8 +83,8 @@ const styles = StyleSheet.create({
         marginTop: 150,
     },
     image: {
-        width: 100,
-        height:100,
+        width: 90,
+        height:90,
     }
 })
 
