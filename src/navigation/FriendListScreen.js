@@ -59,7 +59,7 @@ const FriendInfo = ({ nickname, type, age, sex, navigation }) => {
         return(
             <View>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: {nickname}, type: {type}, age: {age}, sex: {sex}, image: {image}})}
+                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, sex: sex, image: image})}
                     style={styles.info}>
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>

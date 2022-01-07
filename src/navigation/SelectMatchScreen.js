@@ -1,12 +1,29 @@
 import React, { component, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Image } from 'react-native';
-import { NavigationService } from '../common';
+import { useDispatch } from 'react-redux';
+import { add, delet } from '../reducers/select';
+
 
 const MBTIitem = ({type, imageResource}) => {
     const [select, setSelect] = useState(false);
+    const dispatch = useDispatch();
+
+    const addMbti = type => {
+        dispatch(add(type));
+    };
+
+    const deleteMbti = type => {
+        dispatch(delet(type));
+    };
+
     return(
         <TouchableOpacity
-                        onPress={() => setSelect(!select)}
+                        onPress={() => { setSelect(!select);
+                                         if(select){
+                                             addMbti({type});}
+                                         else{
+                                             delete({type});}
+                                             }}
                         style={{
                             justifyContent: 'center',
                             padding: 0,

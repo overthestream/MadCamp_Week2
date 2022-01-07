@@ -14,7 +14,8 @@ const ProfileContent = ({ nickname, mbti, age, sex, image}) => {
     )
 }
 
-const FriendDetailScreen = ({ nickname, type, age, sex, image, navigation }) => {
+const FriendDetailScreen = ({ route, navigation }) => {
+    const { nickname, type, age, sex, image } = route.params;
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />

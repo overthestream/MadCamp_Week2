@@ -1,5 +1,6 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Image } from 'react-native';
+import { useSelector } from 'react-redux';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
 const ProfileContent = ({ nickname, mbti, age, sex}) => {
@@ -16,24 +17,28 @@ const ProfileContent = ({ nickname, mbti, age, sex}) => {
 }
 
 const ProfileScreen = ({ navigation }) => {
+    const state = useSelector((state) => state);
+    const { nickname, mbti, age, sex } = state.user;
+    
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
-                <ProfileContent nickname="잇프제" mbti="ISFJ" age="23" sex="여"/>
+                <ProfileContent nickname={nickname} mbti={mbti} age={age} sex={sex}/>
                 <TouchableOpacity
-                style={{
-                    justifyContent: 'flex-end',
-                    backgroundColor: '#FF9776',
-                    padding: 20,
-                    marginLeft: 100,
-                    marginTop: 50,
-                    marginBottom: 20,
-                    borderRadius: 30,
-                    width: 150,
-                    height: 60,
+                    onPress={() => navigation.navigate('EditProfileScreen')}
+                    style={{
+                        justifyContent: 'flex-end',
+                        backgroundColor: '#FF9776',
+                        padding: 20,
+                        marginLeft: 100,
+                        marginTop: 50,
+                        marginBottom: 20,
+                        borderRadius: 30,
+                        width: 150,
+                        height: 60,
                 }}>
-                <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
-            </TouchableOpacity>
+                    <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
+                </TouchableOpacity>
         </View>
     );
 }
