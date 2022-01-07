@@ -48,11 +48,6 @@ const EditProfileScreen = ({ navigation }) => {
             placeholder={ sex }/>
         <TouchableOpacity
                     onPress={() => {
-                        console.log(newnick);
-                        console.log(newmbti);
-                        console.log(newage);
-                        console.log(newsex);
-                        changenick(newnick);
                         changembti(newmbti);
                         changeage(newage);
                         changesex(newsex);

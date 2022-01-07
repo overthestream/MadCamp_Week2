@@ -1,6 +1,5 @@
 import React, { component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
-import { NavigationService } from '../common';
 
 const ChemiMatchScreen = ({ navigation }) => {
     return(

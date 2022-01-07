@@ -2,6 +2,8 @@ import React from 'react';
 import { Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import {  useDispatch } from 'react-redux';
+import { changeAge, changeNickname } from '../reducers/user';
 
 const ProfileContent = ({ nickname, mbti, age, sex}) => {
     const imageResource = require('../img/ISFJ.png');
@@ -19,6 +21,11 @@ const ProfileContent = ({ nickname, mbti, age, sex}) => {
 const ProfileScreen = ({ navigation }) => {
     const state = useSelector((state) => state);
     const { nickname, mbti, age, sex } = state.user;
+    const dispatch = useDispatch();
+
+    const changenickname = (nick) => {
+        dispatch(changeNickname(nick));
+    }
     
     return(
         <View style={styles.container}>

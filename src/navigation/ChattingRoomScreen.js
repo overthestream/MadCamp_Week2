@@ -1,27 +1,82 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, TextInput, TouchableHighlight } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { GiftedChat } from 'react-native-gifted-chat';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
+//웹 소켓으로부터 받아온 Message를 넣으면 됨
+
 const ChattingRoomScreen = ({ navigation }) => {
     const [text, setText] = useState("");
-    return(
-        <View style={styles.container}>
-                <StatusBar barStyle="dark-content" />
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.chat}
-                        placeholder="채팅을 입력하세요"
-                        defaultValue={text}
-                        onChangeText={(text) => setText(text)}/>
-                    <TouchableHighlight>
-                        <Icon name="send-outline" size={30} style={styles.send}/>
-                    </TouchableHighlight>
-                </View>
-            
-        </View>
-    );
+    const [messages, setMessages] = useState([]);
+    const state = useSelector((state) => state);
+    const { id, nickname } = state.user;
+
+    const user = {
+        _id: id,
+        name: nickname,
+      };
+    /* 메시지 수신 부분
+    useEffect(() => {
+    socket.emit('loadMessages', {});
+    socket.on('loadMessages', msg => {
+      setMessages(msg);
+    })
+  }, []);
+    */
+      
+
+    useEffect(() => {
+        setMessages([
+          {
+            _id: 1,
+            text: 'Hello developer',
+            createdAt: new Date(),
+            user: {
+              _id: 2,
+              name: 'React Native',
+              avatar: require('../img/INTP.png'),
+            },
+          },
+          {
+              _id: 2,
+              text: 'Hello Avatar',
+              createdAt: new Date(),
+              user,
+          },
+          {
+            _id: 3,
+            text: 'This is Test',
+            createdAt: new Date(),
+            user,
+          },
+          {
+            _id: 4,
+            text: 'This is Test2',
+            createdAt: new Date(),
+            user,
+        },
+        ])
+      }, [])
+
+      //메시지 송신 부분
+      const onSend = useCallback((messages = []) => {
+        setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+      }, [])
+   
+    return (
+        <GiftedChat
+          messages={messages}
+          onSend={messages => onSend(messages)}
+          placeholder='채팅을 입력하세요'
+          loadEarlier={true}
+          user={user}
+
+        />
+      );
+
 }
+/*
 
 const styles = StyleSheet.create({
     container: {
@@ -29,7 +84,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
     },
-    chat: {
+    chatInput: {
         width: 250,
         padding: 10,
         marginTop: 200,
@@ -47,7 +102,11 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 5,
+    },
+    chatContent: {
+
     }
-})
+
+})*/ 
 
 export default ChattingRoomScreen;
