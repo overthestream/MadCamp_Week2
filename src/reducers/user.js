@@ -1,19 +1,19 @@
 const CHANGE_NICKNAME = 'NICKNAME/CHANGE';
 const CHANGE_MBTI = 'MBTI/CHANGE';
 const CHANGE_AGE = 'AGE/CHANGE';
-const CHANGE_SEX = 'SEX/CHANGE';
+const CHANGE_GENDER = 'GENDER/CHANGE';
 
 export const changeNickname = (nickname) => ({type: CHANGE_NICKNAME, payload: nickname});
 export const changeMbti = (mbti) => ({type: CHANGE_MBTI, payload: mbti});
 export const changeAge = (age) => ({type: CHANGE_AGE, payload: age});
-export const changeSex = (sex) => ({type: CHANGE_SEX, payload: sex});
+export const changeGender = (gender) => ({type: CHANGE_GENDER, payload: gender});
 
 const initialState = {
     id: 1,
     nickname: '닉네임이지롱',
     mbti: 'ISFJ',
     age: 23,
-    sex: '여',
+    gender: '여',
 };
 
 export default user = (state = initialState, action) => {
@@ -36,11 +36,11 @@ export default user = (state = initialState, action) => {
                 ...state,
                 age,
             };
-        case CHANGE_SEX:
-            const sex = action.payload;
+        case CHANGE_GENDER:
+            const gender = action.payload;
             return {
                 ...state,
-                sex,
+                gender,
             };
         default:
             return {...state};

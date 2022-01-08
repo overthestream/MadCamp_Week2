@@ -11,7 +11,7 @@ import ChemiMatchScreen from './ChemiMatchScreen';
 import ChattingRoomScreen from './ChattingRoomScreen';
 import FriendDetailScreen from './FriendDetailScreen';
 import EditProfileScreen from './EditProfileScreen';
-import { RefreshControlComponent } from 'react-native';
+import SetMbtiScreen from './SetMbtiScreen';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +26,7 @@ const StackNavigator = () => {
                 <Stack.Screen options={{headerShown: false}} name="ChattingRoomScreen" component={ChattingRoomScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="FriendDetailScreen" component={FriendDetailScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="EditProfileScreen" component={EditProfileScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="SetMbtiScreen" component={SetMbtiScreen}/>
             </Stack.Navigator>
     )
 }

@@ -20,7 +20,7 @@ const InitialScreen = ({navigation, route}) => {
                         <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>로그인</Text>
                     </TouchableOpacity>
                 <TouchableOpacity
-                        onPress={()=> navigation.navigate('SignInScreen')}
+                        onPress={()=> navigation.navigate('SetMbtiScreen')}
                         style={{
                             justifyContent: 'flex-end',
                             backgroundColor: '#FF9776',

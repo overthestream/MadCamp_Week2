@@ -5196,6 +5196,11 @@
   "resolved" "https://registry.npmjs.org/mockdate/-/mockdate-3.0.5.tgz"
   "version" "3.0.5"
 
+"modal@^1.2.0":
+  "integrity" "sha1-Palw9iLcjGQLnQcyFD+ADa+6jWM="
+  "resolved" "https://registry.npmjs.org/modal/-/modal-1.2.0.tgz"
+  "version" "1.2.0"
+
 "ms@2.0.0":
   "integrity" "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz"

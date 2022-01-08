@@ -16,7 +16,7 @@ export default chat = (state = initalState, action) => {
                 ...state,
                 socketId: action.socketId,
             };
-        case RECIEVE_CHAT:
+        case RECEIVE_CHAT:
             const { data } = action.payload;
             let newChatList = state.chatList.slice();
             newChatList.push(data);

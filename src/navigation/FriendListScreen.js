@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image, ScrollView } from 'react-native';
 
-const FriendInfo = ({ nickname, type, age, sex, navigation }) => {
+const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
         const [image, setImage] = useState(require('../img/INTP.png'));
         useEffect(() => {
             switch(type){
@@ -59,7 +59,7 @@ const FriendInfo = ({ nickname, type, age, sex, navigation }) => {
         return(
             <View>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, sex: sex, image: image})}
+                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, gender: gender, image: image})}
                     style={styles.info}>
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>
@@ -83,8 +83,8 @@ const FriendListScreen = ({ navigation }) => {
     return(
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
-                    <FriendInfo nickname='잇프제' type='ISFJ' age='20' sex='여' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' sex='남' navigation={navigation}/>
+                    <FriendInfo nickname='잇프제' type='ISFJ' age='20' gender='여' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
             </View>
     );
 }

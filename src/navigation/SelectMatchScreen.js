@@ -1,4 +1,4 @@
-import React, { component, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { add, delet } from '../reducers/select';

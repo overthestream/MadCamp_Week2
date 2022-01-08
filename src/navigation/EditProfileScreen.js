@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeNickname, changeMbti, changeAge, changeSex } from '../reducers/user';
+import { changeNickname, changeMbti, changeAge, changeGender } from '../reducers/user';
 
 const EditProfileScreen = ({ navigation }) => {
     const state = useSelector((state) => state);
-    const { nickname, mbti, age, sex } = state.user;
+    const { nickname, mbti, age, gender } = state.user;
 
     const [ newnick, setNick ] = useState(nickname);
     const [ newmbti, setMbti ] = useState(mbti);
     const [ newage, setAge ] = useState(age);
-    const [ newsex, setSex ] = useState(sex);
+    const [ newgender, setGender ] = useState(gender);
 
     const ageString = String(age);
 
     const dispatch = useDispatch();
 
-    const changenick = newnick => {
+    const changeick = newnick => {
         dispatch(changeNickname(newnick));
     }
 
@@ -28,8 +28,8 @@ const EditProfileScreen = ({ navigation }) => {
         dispatch(changeAge(newage));
     }
 
-    const changesex = newsex => {
-        dispatch(changeSex(newsex));
+    const changegender = newgender => {
+        dispatch(changeGender(newgender));
     }
 
 
@@ -44,13 +44,13 @@ const EditProfileScreen = ({ navigation }) => {
             onChangeText={(text) => setAge(parseInt(text))}
             placeholder={ ageString }/>
         <TextInput
-            onChangeText={(text) => setSex(text)}
-            placeholder={ sex }/>
+            onChangeText={(text) => setGender(text)}
+            placeholder={ gender }/>
         <TouchableOpacity
                     onPress={() => {
                         changembti(newmbti);
                         changeage(newage);
-                        changesex(newsex);
+                        changegender(newgender);
                         navigation.navigate('ProfileScreen');
                     }}
                     style={{

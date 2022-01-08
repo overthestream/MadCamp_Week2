@@ -2,24 +2,24 @@ import React from 'react';
 import { Image } from 'react-native';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
-const ProfileContent = ({ nickname, mbti, age, sex, image}) => {
+const ProfileContent = ({ nickname, mbti, age, gender, image}) => {
     return(
         <View style={{marginLeft: 50}}>
             <Image source={image} style={{width: 200, height: 200, marginLeft: 50, marginBottom: 50}}/>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}> 닉네임 </Text>     {nickname}</Text>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   성별   </Text>         {sex}</Text>
+            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
         </View>
     )
 }
 
 const FriendDetailScreen = ({ route, navigation }) => {
-    const { nickname, type, age, sex, image } = route.params;
+    const { nickname, type, age, gender, image } = route.params;
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
-                <ProfileContent nickname={nickname} mbti={type} age={age} sex={sex} image={image}/>
+                <ProfileContent nickname={nickname} mbti={type} age={age} gender={gender} image={image}/>
                 <TouchableOpacity
                 style={{
                     justifyContent: 'flex-end',
