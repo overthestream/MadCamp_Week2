@@ -12,6 +12,7 @@ import ChattingRoomScreen from './ChattingRoomScreen';
 import FriendDetailScreen from './FriendDetailScreen';
 import EditProfileScreen from './EditProfileScreen';
 import SetMbtiScreen from './SetMbtiScreen';
+import LoginScreen from './LoginScreen'
 import SetNicknameScreen from './SetNicknameScreen';
 
 const CustomHeader = props => {
@@ -29,6 +30,7 @@ const StackNavigator = () => {
             <Stack.Navigator initialRouteName='InitialScreen'
                              he> 
                 <Stack.Screen options={{headerShown: false}} name="InitialScreen" component={InitialScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="LoginScreen" component={LoginScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={TabNavigator}/>
                 <Stack.Screen options={{headerShown: false}} name="SignInScreen" component={SignInScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SelectMatchScreen" component={SelectMatchScreen}/>
