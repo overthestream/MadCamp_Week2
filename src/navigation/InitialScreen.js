@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image } from 'reac
 import { NavigationService } from '../common';
 import loginButtonImage from '../img/kakao_login.png'
 import { Linking } from 'expo';
-import { login } from '@react-native-seoul/kakao-login';
 
 const InitialScreen = ({navigation, route}) => {
     return(
@@ -11,8 +10,8 @@ const InitialScreen = ({navigation, route}) => {
                 <StatusBar barStyle="dark-content" />
                 <TouchableOpacity
                         onPress={
-                            
-                            loginWithKaKao
+                            ()=>
+                            navigation.navigate('LoginScreen')
                         }
                         style={{
                             justifyContent: 'flex-end',
