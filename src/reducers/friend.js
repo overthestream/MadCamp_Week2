@@ -2,7 +2,7 @@ const ADD_FRIEND = 'FRIEND/ADD';
 
 export const addFriend = (id) => ({type: ADD_FRIEND, payload: id});
 
-const initalState = {
+const initialState = {
     friends: [],
 };
 

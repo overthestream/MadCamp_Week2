@@ -4,7 +4,7 @@ const QUIT_CHATTING = 'CHATTING/QUIT'
 export const startChatting = (id) => ({type: START_CHATTING, payload: id});
 export const quitChatting = (id) => ({type: QUIT_CHATTING, payload: id});
 
-const initalState = {
+const initialState = {
     chattingRooms: [],
 };
 
@@ -19,7 +19,7 @@ export default chattingroom = (state = initialState, action) => {
         case QUIT_CHATTING:
             const id = action.payload;
             return {
-                ....state,
+                ...state,
                 chattingRooms: state.chattingRooms.filter((i) => i !== id)
             }
         default:

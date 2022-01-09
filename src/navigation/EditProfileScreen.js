@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNickname, changeMbti, changeAge, changeGender } from '../reducers/user';
+import ReactHTMLDatalist from 'react-html-datalist';
 
 const EditProfileScreen = ({ navigation }) => {
     const state = useSelector((state) => state);
@@ -11,6 +12,7 @@ const EditProfileScreen = ({ navigation }) => {
     const [ newmbti, setMbti ] = useState(mbti);
     const [ newage, setAge ] = useState(age);
     const [ newgender, setGender ] = useState(gender);
+    
 
     const ageString = String(age);
 
@@ -32,6 +34,17 @@ const EditProfileScreen = ({ navigation }) => {
         dispatch(changeGender(newgender));
     }
 
+    var cars = [
+        { id: 1, model: "CRV", company: "Honda" },
+        { id: 2, model: "Accord", company: "Honda" },
+        { id: 3, model: "800", company: "Maruti" },
+        { id: 4, model: "Civic", company: "Honda" },
+        { id: 5, model: "Model S", company: "Tesla" }
+        ]
+    let datalist = [
+        'INTP',
+        'ISTP',
+    ];
 
     return(<View>
         <TextInput
@@ -46,6 +59,7 @@ const EditProfileScreen = ({ navigation }) => {
         <TextInput
             onChangeText={(text) => setGender(text)}
             placeholder={ gender }/>
+     
         <TouchableOpacity
                     onPress={() => {
                         changenick(newnick)

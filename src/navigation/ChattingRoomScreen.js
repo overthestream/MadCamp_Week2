@@ -1,16 +1,70 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector } from 'react-redux';
-import { GiftedChat } from 'react-native-gifted-chat';
-
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { GiftedChat, InputToolbar, Bubble, Actions, Send } from 'react-native-gifted-chat';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { addFriend } from '../reducers/friend';
 
 //웹 소켓으로부터 받아온 Message를 넣으면 됨
+
+const renderActions = (addfriend) => { 
+  return(
+    <Actions 
+      icon={() =>
+          <Icon name="add-circle-outline" size={25}/>}
+      onPressActionButton={() => 
+                            { 
+                            //친구 추가
+                            addfriend();
+                            alert('친구가 추가 됐습니다.')
+
+                            }
+                          }
+     />
+  );
+}
+
+const renderSend = props => {
+  return(
+    <Send {...props} containerStyle={{ marginBottom: 10, marginRight: 10 }}>
+      <Icon name="chatbubbles-outline" size={25}/>
+    </Send>
+  );
+}
+
+const renderbubble = props => {
+  return(
+    <Bubble {...props}
+      textStyle={{
+        right: {
+          color: 'white',
+          fontFamily: "CerebriSans-Book"
+        },
+        left: {
+          color: '#24204F',
+          fontFamily: "CerebriSans-Book"
+        },
+      }}
+      wrapperStyle={{
+        right: {
+          backgroundColor: "#56A7A7",
+        },
+      }}
+    />
+  );
+}
 
 const ChattingRoomScreen = ({ navigation }) => {
     const [text, setText] = useState("");
     const [messages, setMessages] = useState([]);
     const state = useSelector((state) => state);
     const { id, nickname } = state.user;
+    
+    const dispatch = useDispatch();
+
+    const addfriend = () => {
+      dispatch(addFriend(2));
+    };
 
     const user = {
         _id: id,
@@ -66,17 +120,19 @@ const ChattingRoomScreen = ({ navigation }) => {
    
     return (
         <GiftedChat
+          renderBubble={renderbubble}
           messages={messages}
           onSend={messages => onSend(messages)}
+          renderActions={() => renderActions(addfriend)}
+          renderSend={renderSend}
           placeholder='채팅을 입력하세요'
           loadEarlier={true}
           user={user}
-
         />
       );
 
 }
-/*
+
 
 const styles = StyleSheet.create({
     container: {
@@ -103,10 +159,11 @@ const styles = StyleSheet.create({
         right: 0,
         bottom: 5,
     },
-    chatContent: {
-
+    inputToolbar: {
+        borderColor: 'grey',
+        borderRadius: 5
     }
 
-})*/ 
+}) 
 
 export default ChattingRoomScreen;

@@ -21,21 +21,12 @@ const CustomDrawerContent = (props) => {
         </DrawerContentScrollView>
     );
 }
-const CustomHeader = () => {
-    return(
-        <View>
-            <Image source='../img/logo.png'></Image>
-        </View>
-    )
-}
-
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
     return(
         <Drawer.Navigator 
-            initialRouteName='HomeScreen'
-            drawerContent={(props) =><CustomDrawerContent {...props}/>}>
+            initialRouteName='HomeScreen'>
             <Drawer.Screen options={{ headerTitle: 'HOME'}} name='HomeScreen' component={StackNavigator} options={{drawerLabel: '홈'}} />
             <Drawer.Screen options={{headerShown: false}} name='ProfileScreen' component={ProfileScreen} options={{drawerLabel: '프로필'}} />
             <Drawer.Screen options={{headerShown: false}} name='FriendListScreen' component={FriendListScreen} options={{drawerLabel: '친구목록'}}/>

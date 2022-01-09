@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Image } from 'react-native';
-import Popup from './Popup'
+import Popup from './SetMbtiPopup'
 
 
 const MBTIitem = ({type, imageResource, navigation}) => {
