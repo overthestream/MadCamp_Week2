@@ -1,6 +1,6 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from '../common/DrawerNavigator';
 import TabNavigator from '../common/TabNavigator';
 import InitialScreen from './InitialScreen';
@@ -12,12 +12,22 @@ import ChattingRoomScreen from './ChattingRoomScreen';
 import FriendDetailScreen from './FriendDetailScreen';
 import EditProfileScreen from './EditProfileScreen';
 import SetMbtiScreen from './SetMbtiScreen';
+import SetNicknameScreen from './SetNicknameScreen';
+
+const CustomHeader = props => {
+    return(
+        <View>
+            <Image source='../img/logo.png'></Image>
+        </View>
+    )
+}
 
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
     return(
-            <Stack.Navigator initialRouteName='InitialScreen'>
+            <Stack.Navigator initialRouteName='InitialScreen'
+                             he> 
                 <Stack.Screen options={{headerShown: false}} name="InitialScreen" component={InitialScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={TabNavigator}/>
                 <Stack.Screen options={{headerShown: false}} name="SignInScreen" component={SignInScreen}/>
@@ -27,6 +37,7 @@ const StackNavigator = () => {
                 <Stack.Screen options={{headerShown: false}} name="FriendDetailScreen" component={FriendDetailScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="EditProfileScreen" component={EditProfileScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SetMbtiScreen" component={SetMbtiScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="SetNicknameScreen" component={SetNicknameScreen}/>
             </Stack.Navigator>
     )
 }

@@ -10,12 +10,12 @@ const InitialScreen = ({navigation, route}) => {
                         onPress={()=> navigation.navigate('HomeScreen')}
                         style={{
                             justifyContent: 'flex-end',
-                            backgroundColor: '#FF9776',
+                            backgroundColor: '#56A7A7',
                             padding: 20,
                             marginTop: 20,
-                            marginLeft: 50,
+                            marginLeft: 80,
                             borderRadius: 30,
-                            width: '70%',
+                            width: '60%',
                         }}>
                         <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>로그인</Text>
                     </TouchableOpacity>
@@ -23,12 +23,12 @@ const InitialScreen = ({navigation, route}) => {
                         onPress={()=> navigation.navigate('SetMbtiScreen')}
                         style={{
                             justifyContent: 'flex-end',
-                            backgroundColor: '#FF9776',
+                            backgroundColor: '#56A7A7',
                             padding: 20,
                             marginTop: 20,
-                            marginLeft: 50,
+                            marginLeft: 80,
                             borderRadius: 30,
-                            width: '70%',
+                            width: '60%',
                         }}>
                         <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>회원가입</Text>
                 </TouchableOpacity>
@@ -39,7 +39,7 @@ const InitialScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#F9FBFC',
         justifyContent: 'center',
     }
 })

@@ -10,12 +10,12 @@ const HomeScreen = ({ navigation }) => {
                     onPress={()=> navigation.navigate('SelectMatchScreen')}
                     style={{
                         justifyContent: 'flex-end',
-                        backgroundColor: '#FF9776',
+                        backgroundColor: '#56A7A7',
                         padding: 20,
                         marginTop: 20,
-                        marginLeft: 40,
+                        marginLeft: 80,
                         borderRadius: 30,
-                        width: '80%',
+                        width: '60%',
                     }}>
                     <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>선택랜덤매칭</Text>
                 </TouchableOpacity>
@@ -23,14 +23,14 @@ const HomeScreen = ({ navigation }) => {
                     onPress={()=> navigation.navigate('ChemiMatchScreen')}
                     style={{
                         justifyContent: 'flex-end',
-                        backgroundColor: '#FF9776',
+                        backgroundColor: '#56A7A7',
                         padding: 20,
                         marginTop: 20,
-                        marginLeft: 40,
+                        marginLeft: 80,
                         borderRadius: 30,
-                        width: '80%',
+                        width: '60%',
                     }}>
-                    <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>궁합매칭</Text>
+                    <Text style={{fontFamily: 'GodoM', fontSize: 20, textAlign: 'center', color: 'white'}}>궁합매칭</Text>
                 </TouchableOpacity>
             </View>
     );
@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#F9FBFC',
         justifyContent: 'center',
     }
 })

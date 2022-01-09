@@ -87,7 +87,7 @@ const ProfileScreen = ({ navigation }) => {
                     onPress={() => navigation.navigate('EditProfileScreen')}
                     style={{
                         justifyContent: 'flex-end',
-                        backgroundColor: '#FF9776',
+                        backgroundColor: '#56A7A7',
                         padding: 20,
                         marginLeft: 100,
                         marginTop: 50,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 21, 
-        backgroundColor: '#FF9776',
+        backgroundColor: '#56A7A7',
         color: 'white',
         textAlign: 'center',
     }

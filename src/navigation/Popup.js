@@ -27,7 +27,7 @@ const Popup = (props) => {
                 <TouchableOpacity onPress={() => {
                     choice();
                     changembti(mbti);
-                    navigation.navigate('HomeScreen');
+                    navigation.navigate('SetNicknameScreen');
                 }}
                 style={{
                     justifyContent: 'flex-end',
