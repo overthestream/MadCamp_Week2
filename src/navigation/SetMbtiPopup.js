@@ -31,7 +31,7 @@ const Popup = (props) => {
                 }}
                 style={{
                     justifyContent: 'flex-end',
-                    backgroundColor: '#FF9776',
+                    backgroundColor: '#56A7A7',
                     justifyContent: "center",
                     padding: 20,
                     borderRadius: 30,
@@ -45,7 +45,7 @@ const Popup = (props) => {
                 <TouchableOpacity onPress={() => close()}
                 style={{
                     justifyContent: 'flex-end',
-                    backgroundColor: '#FF9776',
+                    backgroundColor: '#56A7A7',
                     justifyContent: "center",
                     padding: 20,
                     borderRadius: 30,

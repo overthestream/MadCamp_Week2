@@ -77,6 +77,10 @@ const ChattingRoomInfo = ({ nickname, lastmessage, type, age, gender, navigation
 }
 
 const FriendListScreen = ({ navigation }) => {
+
+    //친구데이터 불러오기
+
+
     return(
             <View style={styles.container}>
                 <ScrollView 

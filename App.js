@@ -5,6 +5,8 @@ import rootReducer from './src/reducers';
 import { createStore, applyMiddleware } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/common/DrawerNavigator';
+import TabNavigator from './src/common/TabNavigator';
+import { StackNavigator } from './src/navigation';
 
 const store = createStore(rootReducer);
 
@@ -12,7 +14,7 @@ const App = () => {
   return(
     <Provider store={store}>
       <NavigationContainer>
-        <DrawerNavigator/>
+        <StackNavigator/>
       </NavigationContainer>
     </Provider>
   );

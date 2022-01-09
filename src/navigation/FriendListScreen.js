@@ -80,6 +80,9 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
 }
 
 const FriendListScreen = ({ navigation }) => {
+
+    //친구목록 데이터 불러오기
+    
     return(
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
