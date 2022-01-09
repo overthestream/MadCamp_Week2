@@ -64,11 +64,11 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>
                         <Text style={{fontSize: 16, marginBottom: 10, marginTop: 20}}>
-                            <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#FF9776', backgroundColor: '#FF9776'}}>
+                            <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#A0DBDB', backgroundColor: '#A0DBDB'}}>
                                 <Text style={{color: 'white'}}>닉네임</Text>
                             </View>     {nickname}</Text>
                         <Text style={{fontSize: 16, marginBottom: 10, marginTop: 20}}>
-                            <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#FF9776', backgroundColor: '#FF9776'}}>
+                            <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#A0DBDB', backgroundColor: '#A0DBDB'}}>
                                 <Text style={{color: 'white'}}>MBTI</Text>
                             </View>      {type}</Text>
                     </View>
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
     content: {
         flexDirection: 'column',
         fontSize: 60,
-    }
+    },
+    
 })
 
 export default FriendListScreen;

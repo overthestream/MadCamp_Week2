@@ -22,7 +22,7 @@ const MBTIitem = ({type, imageResource}) => {
                                          if(select){
                                              addMbti({type});}
                                          else{
-                                             delete({type});}
+                                             deleteMbti({type});}
                                              }}
                         style={{
                             justifyContent: 'center',
@@ -34,7 +34,7 @@ const MBTIitem = ({type, imageResource}) => {
                             height: '37%',
                             borderWidth: 3,
                             borderStyle: 'dashed',
-                            borderColor: select== false ? '#808080' : '#8A94FF',
+                            borderColor: select== false ? '#808080' : '#A0DBDB',
                             alignItems: 'center' 
                         }}>
                         <Image source={imageResource} style={styles.image}/>
@@ -73,7 +73,7 @@ const SelectMatchScreen = ({ navigation }) => {
                 onPress={() => navigation.navigate("ChattingRoomScreen")}
                 style={{
                     justifyContent: 'flex-end',
-                    backgroundColor: '#FF9776',
+                    backgroundColor: '#56A7A7',
                     padding: 20,
                     marginLeft: 100,
                     marginBottom: 20,

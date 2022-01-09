@@ -42,7 +42,7 @@ const loginWithKaKao = async () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#F9FBFC',
         justifyContent: 'center',
     }
 })

@@ -16,7 +16,7 @@ const EditProfileScreen = ({ navigation }) => {
 
     const dispatch = useDispatch();
 
-    const changeick = newnick => {
+    const changenick = newnick => {
         dispatch(changeNickname(newnick));
     }
 
@@ -48,6 +48,7 @@ const EditProfileScreen = ({ navigation }) => {
             placeholder={ gender }/>
         <TouchableOpacity
                     onPress={() => {
+                        changenick(newnick)
                         changembti(newmbti);
                         changeage(newage);
                         changegender(newgender);
@@ -55,7 +56,7 @@ const EditProfileScreen = ({ navigation }) => {
                     }}
                     style={{
                         justifyContent: 'flex-end',
-                        backgroundColor: '#FF9776',
+                        backgroundColor: '#56A7A7',
                         padding: 20,
                         marginLeft: 100,
                         marginTop: 50,
