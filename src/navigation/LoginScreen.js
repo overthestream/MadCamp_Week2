@@ -3,7 +3,17 @@ import { View } from 'react-native';
 import {WebView} from 'react-native-webview'
 import axios from 'axios';               
 
+import { useDispatch } from "react-redux";
+import user, { changeGender, changeAge, changeID, changeNickname, changeMbti } from '../reducers/user';
+
 const LoginScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
+    
+    const fetchUserData = (gender, age, id) => {
+      dispatch(changeAge(age));
+      dispatch(changeGender(gender === 'female' ? '여' : '남'));
+      dispatch(changeID(id));  
+    }
     return(
       <View style={
         {
@@ -17,8 +27,13 @@ const LoginScreen = ({ navigation }) => {
             if(navState.url.substring(0,34)=='http://192.249.18.173/user/spinner' && !navState.loading){
               const result = await axios.get(`http://192.249.18.173/user/oauth?code=${navState.url.substring(40)}`);
               console.log(result.data);
-              
-              navigation.navigate('HomeScreen');
+              fetchUserData(result.data.gender, result.data.age, result.data.id);
+              if(result.data.mbti){
+                dispatch(changeMbti(result.data.mbti));
+                dispatch(changeNickname(result.data.nick));
+                navigation.navigate('HomeScreen');
+              }
+              navigation.navigate('SetMbtiScreen');
             }
           }
         }
