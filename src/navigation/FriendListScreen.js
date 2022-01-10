@@ -82,7 +82,7 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
 const FriendListScreen = ({ navigation }) => {
 
     //친구목록 데이터 불러오기
-    
+
     return(
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         top: 0,
+        paddingTop: 20,
     },
     info: {
         flexDirection: 'row',
