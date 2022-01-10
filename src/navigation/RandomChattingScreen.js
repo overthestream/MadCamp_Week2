@@ -66,7 +66,7 @@ const renderbubble = props => {
   );
 }
 
-const ChattingRoomScreen = ({ navigation }) => {
+const RandomChattingScreen = ({ navigation }) => {
     const [text, setText] = useState("");
     const [messages, setMessages] = useState([]);
     const state = useSelector((state) => state);
@@ -178,4 +178,4 @@ const styles = StyleSheet.create({
 
 }) 
 
-export default ChattingRoomScreen;
+export default RandomChattingScreen;
