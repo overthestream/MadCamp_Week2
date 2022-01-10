@@ -7,7 +7,7 @@ import  { useSelector }from 'react-redux';
 
 const Popup = (props) => {
     const { mbti, navigation, visible, close, choice } = props;
-        const state = useSelector((state) => state);
+    const state = useSelector((state) => state);
     const { id } = state.user;
     const dispatch = useDispatch();
     

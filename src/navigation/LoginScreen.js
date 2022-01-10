@@ -4,7 +4,7 @@ import {WebView} from 'react-native-webview'
 import axios from 'axios';               
 
 import { useDispatch } from "react-redux";
-import user, { changeGender, changeAge, changeID, changeNickname, changeMbti } from '../reducers/user';
+import  { changeGender, changeAge, changeID, changeNickname, changeMbti } from '../reducers/user';
 
 const LoginScreen = ({ navigation }) => {
     const dispatch = useDispatch();
@@ -26,14 +26,15 @@ const LoginScreen = ({ navigation }) => {
           onNavigationStateChange={async (navState) =>{
             if(navState.url.substring(0,34)=='http://192.249.18.173/user/spinner' && !navState.loading){
               const result = await axios.get(`http://192.249.18.173/user/oauth?code=${navState.url.substring(40)}`);
-              console.log(result.data);
-              fetchUserData(result.data.gender, result.data.age, result.data.id);
-              if(result.data.mbti){
-                dispatch(changeMbti(result.data.mbti));
-                dispatch(changeNickname(result.data.nick));
+              fetchUserData(result.data[0].gender, result.data[0].age, result.data[0].id);
+              console.log(result.data[0].mbti)
+              if(result.data[0].mbti !== null){
+                dispatch(changeMbti(result.data[0].mbti));
+                dispatch(changeNickname(result.data[0].nick));
                 navigation.navigate('HomeScreen');
               }
-              navigation.navigate('SetMbtiScreen');
+              else
+                navigation.navigate('SetMbtiScreen');
             }
           }
         }
