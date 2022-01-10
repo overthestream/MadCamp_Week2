@@ -61,7 +61,7 @@ const ProfileContent = ({ nickname, mbti, age, gender}) => {
         }, [mbti]);
     return(
         <View style={{marginLeft: 50}}>
-            <Image source={image} style={{width: 200, height: 200, marginLeft: 50, marginBottom: 50}}/>
+            <Image resizeMethod='resize' source={image} style={{width: 200, height: 200, marginLeft: 50, marginBottom: 50}}/>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}> 닉네임 </Text>     {nickname}</Text>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
             <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
@@ -90,7 +90,7 @@ const ProfileScreen = ({ navigation }) => {
                         backgroundColor: '#56A7A7',
                         padding: 20,
                         marginLeft: 100,
-                        marginTop: 50,
+                        marginTop: 20,
                         marginBottom: 20,
                         borderRadius: 30,
                         width: 150,
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         justifyContent: 'center',
+        paddingTop: 30,
     },
     title: {
         fontSize: 21, 

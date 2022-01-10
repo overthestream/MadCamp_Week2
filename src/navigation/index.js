@@ -10,10 +10,15 @@ import SelectMatchScreen from './SelectMatchScreen';
 import ChemiMatchScreen from './ChemiMatchScreen';
 import ChattingRoomScreen from './ChattingRoomScreen';
 import FriendDetailScreen from './FriendDetailScreen';
+import ProfileScreen from './ProfileScreen';
+import ChattingListSreen from './ChattingListScreen';
+import FriendListScreen from './FriendListScreen';
 import EditProfileScreen from './EditProfileScreen';
 import SetMbtiScreen from './SetMbtiScreen';
 import LoginScreen from './LoginScreen'
 import SetNicknameScreen from './SetNicknameScreen';
+import ChemiMatchLoadingScreen from './ChemiMatchLoadingScreen';
+import SelectMatchLoadingScreen from './SelectMatchLoadingScreen';
 
 const CustomHeader = props => {
     return(
@@ -31,7 +36,7 @@ const StackNavigator = () => {
                              he> 
                 <Stack.Screen options={{headerShown: false}} name="InitialScreen" component={InitialScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="LoginScreen" component={LoginScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={TabNavigator}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, paddingRight: 100}} source={require('../img/logo.png')}/>}} name="HomeScreen" component={TabNavigator}/>
                 <Stack.Screen options={{headerShown: false}} name="SignInScreen" component={SignInScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SelectMatchScreen" component={SelectMatchScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="ChemiMatchScreen" component={ChemiMatchScreen}/>
@@ -40,6 +45,11 @@ const StackNavigator = () => {
                 <Stack.Screen options={{headerShown: false}} name="EditProfileScreen" component={EditProfileScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SetMbtiScreen" component={SetMbtiScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SetNicknameScreen" component={SetNicknameScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="ProfileScreen" component={ProfileScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="ChattingListScreen" component={ChattingListSreen}/>
+                <Stack.Screen options={{headerShown: false}} name="FriendListScreen" component={FriendListScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="ChemiMatchLoadingScreen" component={ChemiMatchLoadingScreen}/>
+                <Stack.Screen options={{headerShown: false}} name="SelectMatchLoadingScreen" component={SelectMatchLoadingScreen}/>
             </Stack.Navigator>
     )
 }

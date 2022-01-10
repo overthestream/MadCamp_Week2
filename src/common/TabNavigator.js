@@ -12,7 +12,12 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
     return(
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Navigator 
+            screenOptions={{ headerShown: false }}
+            tabBarOptions={{
+                activeTintColor: '#56A7A7',
+            }}
+            >
             <Tab.Screen options={{headerShown: false}} name='HOME' component={HomeScreen} options={{tabBarIcon: () => (<Icon name="ios-home-outline" size={25}/>)}} />
             <Tab.Screen options={{headerShown: false}} name='CHAT' component={ChattingListScreen} options={{tabBarIcon: () => (<Icon name="chatbubbles-outline" size={25}/>)}} />
             <Tab.Screen options={{headerShown: false}} name='FRIEND' component={FriendListScreen} options={{tabBarIcon: () => (<Icon name="people-outline" size={25}/>)}} />

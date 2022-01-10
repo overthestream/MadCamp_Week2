@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Image } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { add, delet } from '../reducers/select';
 
 
 const MBTIitem = ({type, imageResource}) => {
-    const [select, setSelect] = useState(false);
+    const [selects, setSelect] = useState(false);
     const dispatch = useDispatch();
 
     const addMbti = type => {
@@ -18,12 +18,13 @@ const MBTIitem = ({type, imageResource}) => {
 
     return(
         <TouchableOpacity
-                        onPress={() => { setSelect(!select);
-                                         if(select){
-                                             addMbti({type});}
-                                         else{
+                        onPress={() => { setSelect(!selects);
+                                         if(selects){
                                              deleteMbti({type});}
-                                             }}
+                                         else{
+                                             addMbti({type});}
+                                            }}
+
                         style={{
                             justifyContent: 'center',
                             padding: 0,
@@ -34,7 +35,7 @@ const MBTIitem = ({type, imageResource}) => {
                             height: '37%',
                             borderWidth: 3,
                             borderStyle: 'dashed',
-                            borderColor: select== false ? '#808080' : '#A0DBDB',
+                            borderColor: selects== false ? '#808080' : '#A0DBDB',
                             alignItems: 'center' 
                         }}>
                         <Image source={imageResource} style={styles.image}/>
@@ -70,7 +71,7 @@ const SelectMatchScreen = ({ navigation }) => {
                 <MBTIitem type="ESFJ" imageResource={require("../img/ESFJ.png")}/>
             </ScrollView>
             <TouchableOpacity
-                onPress={() => navigation.navigate("ChattingRoomScreen")}
+                onPress={() => navigation.navigate("SelectMatchLoadingScreen")}
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',

@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
               const result = await axios.get(`http://192.249.18.173/user/oauth?code=${navState.url.substring(40)}`);
               console.log(result.data);
               
-              navigation.navigate('HomeScreen');
+              navigation.navigate('SetMbtiScreen');
             }
           }
         }
