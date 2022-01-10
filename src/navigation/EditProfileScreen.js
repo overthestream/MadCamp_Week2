@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNickname, changeMbti} from '../reducers/user';
+import axios from 'axios';
 
 const EditProfileScreen = ({ navigation }) => {
     const state = useSelector((state) => state);
-    const { nickname, mbti } = state.user;
+    const { nickname, mbti, id } = state.user;
 
     const [ newnick, setNick ] = useState(nickname);
     const [ newmbti, setMbti ] = useState(mbti);
@@ -13,10 +14,12 @@ const EditProfileScreen = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const changenick = newnick => {
+        axios.put(`http://192.249.18.173/user/nickname?nick=${newnick}&id=${id}`);
         dispatch(changeNickname(newnick));
     }
 
     const changembti = newmbti => {
+         axios.put(`http://192.249.18.173/user/mbti?mbti=${newmbti}&id=${id}`);
         dispatch(changeMbti(newmbti));
     }
 
@@ -39,7 +42,7 @@ const EditProfileScreen = ({ navigation }) => {
                     onPress={() => {
                         changenick(newnick)
                         changembti(newmbti);
-                        navigation.navigate('ProfileScreen');
+                        navigation.navigate('HomeScreen');
                     }}
                     style={{
                         justifyContent: 'flex-end',

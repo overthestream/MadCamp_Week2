@@ -88,7 +88,8 @@ const RandomChattingScreen = ({ navigation,  route }) => {
         _id: id,
         name: nickname,
       };
-      previousMessages => GiftedChat.append(previousMessages, messages)
+      previousMessages => GiftedChat.append(previousMessages, messages);
+      
     useEffect(() => {
       socket.on('receiveMsg', msg => {
         setMessages(previousMessages => GiftedChat.append(previousMessages,{
@@ -104,40 +105,6 @@ const RandomChattingScreen = ({ navigation,  route }) => {
       })
     }, []);
       
-/*
-    useEffect(() => {
-        setMessages([
-          {
-            _id: 1,
-            text: 'Hello developer',
-            createdAt: new Date(),
-            user: {
-              _id: 2,
-              name: 'React Native',
-              avatar: require('../img/INTP.png'),
-            },
-          },
-          {
-              _id: 2,
-              text: 'Hello Avatar',
-              createdAt: new Date(),
-              user,
-          },
-          {
-            _id: 3,
-            text: 'This is Test',
-            createdAt: new Date(),
-            user,
-          },
-          {
-            _id: 4,
-            text: 'This is Test2',
-            createdAt: new Date(),
-            user,
-        },
-        ])
-      }, [])
-*/
       const onSend = useCallback((messages = []) => {
         setIncre(incre+1)
         socket.emit('sendMsg',{message: messages[0].text, senderSocket: socket.id, receiverSocket: opponentSocket, timestamp: new Date()})
