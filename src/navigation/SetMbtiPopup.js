@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Text, View, Modal, TouchableOpacity, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import { changeMbti } from '../reducers/user';
+import axios from 'axios';
+import  { useSelector }from 'react-redux';
 
 const Popup = (props) => {
     const { mbti, navigation, visible, close, choice } = props;
+    const state = useSelector((state) => state);
+    const { id } = state.user;
     const dispatch = useDispatch();
     
     const changembti = mbti => {
@@ -25,6 +29,7 @@ const Popup = (props) => {
                     으로 설정하시겠습니까 ?</Text>
                 <View style={{flexDirection: 'row'}}>
                 <TouchableOpacity onPress={() => {
+                    axios.put(`http://192.249.18.173/user/mbti?mbti=${mbti}&id=${id}`);
                     choice();
                     changembti(mbti);
                     navigation.navigate('SetNicknameScreen');

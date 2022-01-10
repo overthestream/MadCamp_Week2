@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, TextInput} from 'react-native';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeNickname } from '../reducers/user';
+import axios from 'axios';
 
 const SetNicknameScreen = ({ navigation }) => {
     const [ newnick, setNick ] = useState('');
     const dispatch = useDispatch();
+    const state = useSelector((state) => state);
 
+    const { id } = state.user;
     const changenick = newnick => {
         dispatch(changeNickname(newnick));
     }
@@ -25,6 +28,7 @@ const SetNicknameScreen = ({ navigation }) => {
                            placeholder='닉네임'/>
                 <TouchableOpacity
                         onPress={() => {
+                            axios.put(`http://192.249.18.173/user/nickname?nick=${newnick}&id=${id}`);
                             changenick(newnick);
                             navigation.navigate('HomeScreen');
                         }}
