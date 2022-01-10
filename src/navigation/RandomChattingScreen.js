@@ -74,6 +74,7 @@ const RandomChattingScreen = ({ navigation }) => {
     
     const dispatch = useDispatch();
 
+    //addFriend인자에 친구추가할 id 넣어주기
     const addfriend = () => {
       dispatch(addFriend(2));
     };
