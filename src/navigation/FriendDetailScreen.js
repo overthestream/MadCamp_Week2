@@ -21,7 +21,7 @@ const FriendDetailScreen = ({ route, navigation }) => {
                 <StatusBar barStyle="dark-content" />
                 <ProfileContent nickname={nickname} mbti={type} age={age} gender={gender} image={image}/>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('ChattingRoomScreen')}
+                onPress={() => navigation.navigate('FriendChattingScreen')}
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',
