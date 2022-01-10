@@ -29,16 +29,6 @@ const InitialScreen = ({navigation, route}) => {
     );
 }
 
-const loginWithKaKao = async () => {
-    try{
-        //navigation.navigate('HomeScreen')}
-        const token =await login();
-        console.log(token);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
