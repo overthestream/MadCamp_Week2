@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import React, { Component, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image, ScrollView } from 'react-native';
 
-const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
+const FriendInfo = ({ nickname, type, age, gender, id, navigation }) => {
         const [image, setImage] = useState(require('../img/INTP.png'));
         useEffect(() => {
             switch(type){
@@ -61,7 +61,7 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
         return(
             <ScrollView>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, gender: gender, image: image})}
+                    onPress={() => navigation.navigate('FriendDetailScreen', { id: id, nickname: nickname, type: type, age: age, gender: gender, image: image})}
                     style={styles.info}>
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>
@@ -91,7 +91,7 @@ const FriendListScreen =   ({ navigation }) => {
           try { const result = await (await axios.get(`http://192.249.18.173:80/friend/get?id=${id}`)).data;
           console.log(result);
             const list = result.map((item) => {
-                return <FriendInfo nickname={item.nick} type={item.mbti} age={item.age} gender={item.gender == 'male' ? '남': '여'} navigation={navigation}/>
+                return <FriendInfo id={item.add_to} nickname={item.nick} type={item.mbti} age={item.age} gender={item.gender == 'male' ? '남': '여'} navigation={navigation}/>
             })
             console.log(list);
             setNodeList(list);} catch(err) {console.log(err);}

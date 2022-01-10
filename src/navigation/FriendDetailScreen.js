@@ -15,13 +15,13 @@ const ProfileContent = ({ nickname, mbti, age, gender, image}) => {
 }
 
 const FriendDetailScreen = ({ route, navigation }) => {
-    const { nickname, type, age, gender, image } = route.params;
+    const { nickname, type, age, gender, image, id } = route.params;
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
                 <ProfileContent nickname={nickname} mbti={type} age={age} gender={gender} image={image}/>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('FriendChattingScreen')}
+                onPress={() => navigation.navigate('FriendChattingScreen', {id: id})}
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',
