@@ -39,15 +39,13 @@ const EditProfileScreen = ({ navigation }) => {
                     onPress={() => {
                         changenick(newnick)
                         changembti(newmbti);
-                        changeage(newage);
-                        changegender(newgender);
                         navigation.navigate('ProfileScreen');
                     }}
                     style={{
                         justifyContent: 'flex-end',
                         backgroundColor: '#56A7A7',
                         padding: 20,
-                        marginLeft: 120,
+                        marginLeft: '25%',
                         marginTop: 50,
                         marginBottom: 20,
                         borderRadius: 30,
@@ -56,7 +54,7 @@ const EditProfileScreen = ({ navigation }) => {
                         position: 'absolute',
                         top: 350,
                 }}>
-                    <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
                 </TouchableOpacity>
         
     </View>);
@@ -75,32 +73,36 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     title1: {
+        fontFamily: 'aTitleGothic',
         fontSize: 20,
         fontWeight: 'bold',
         color: '#56A7A7',
         marginTop: 50,
-        marginLeft: 140,
+        marginLeft: '34%',
         position: 'absolute',
         top: 50,
     },
     title2: {
+        fontFamily: 'aTitleGothic',
         fontSize: 20,
         fontWeight: 'bold',
         color: '#56A7A7',
         marginTop: 50,
-        marginLeft: 140,
+        marginLeft: '34%',
         position: 'absolute',
         top: 200,
     },
     input1: {
-        marginLeft: 160,
+        fontFamily: 'aTitleGothic',
+        marginLeft: '40%',
         marginBottom: 50,
         fontSize: 20,
         position: 'absolute',
         top: 150,
     },
     input2: {
-        marginLeft: 160,
+        fontFamily: 'aTitleGothic',
+        marginLeft: '40%',
         marginBottom: 50,
         fontSize: 20,
         position: 'absolute',

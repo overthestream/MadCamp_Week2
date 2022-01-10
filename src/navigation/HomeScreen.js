@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => {
                         backgroundColor: '#56A7A7',
                         padding: 17,
                         marginTop: 20,
-                        marginLeft: 95,
+                        marginLeft: '23%',
                         borderRadius: 30,
                         width: '55%',
                     }}>
@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
                         backgroundColor: '#56A7A7',
                         padding: 17,
                         marginTop: 20,
-                        marginLeft: 95,
+                        marginLeft: '23%',
                         borderRadius: 30,
                         width: '55%',
                     }}>

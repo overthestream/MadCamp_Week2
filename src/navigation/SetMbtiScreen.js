@@ -21,7 +21,7 @@ const MBTIitem = ({type, imageResource, navigation}) => {
                             marginBottom: 20,
                             borderRadius: 50,
                             width: '10.5%',
-                            height: '37%',
+                            height: '40%',
                             borderWidth: 3,
                             borderStyle: 'dashed',
                             borderColor: select== false ? '#808080' : '#8A94FF',
@@ -29,7 +29,7 @@ const MBTIitem = ({type, imageResource, navigation}) => {
                         }}>
                         <Popup visible={modalVisible} choice={() => setModalVisible(false)} close={() => {setModalVisible(false); setSelect(false);}} mbti={type} navigation={navigation}/>
                         <Image source={imageResource} style={styles.image}/>
-                        <Text style={{fontSize: 28, textAlign: 'center', fontWeight: 'bold', color: '#808080'}}>{type}</Text>
+                        <Text style={{fontFamily: 'aTitleGothic', fontSize: 28, textAlign: 'center', fontWeight: 'bold', color: '#808080'}}>{type}</Text>
         </TouchableOpacity>
     );
 }
@@ -42,7 +42,8 @@ const SetMbtiScreen = ({ navigation }) => {
                 left: 110,
                 top: 100,
                 fontSize: 17,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontFamily: 'aTitleGothic'
             }}>자신의 MBTI를 선택하세요.</Text>
             <ScrollView style={styles.scrollView}
                         horizontal={true}
