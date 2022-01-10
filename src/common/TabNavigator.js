@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DrawerNavigator from './DrawerNavigator';
 import HomeScreen from '../navigation/HomeScreen';
-import ChattingListScreen from '../navigation/ChattingListScreen';
 import FriendListScreen from '../navigation/FriendListScreen';
 import ProfileScreen from '../navigation/ProfileScreen';
 
@@ -18,8 +16,7 @@ const TabNavigator = () => {
                 activeTintColor: '#56A7A7',
             }}
             >
-            <Tab.Screen options={{headerShown: false}} name='HOME' component={HomeScreen} options={{tabBarIcon: () => (<Icon name="ios-home-outline" size={25}/>)}} />
-            <Tab.Screen options={{headerShown: false}} name='CHAT' component={ChattingListScreen} options={{tabBarIcon: () => (<Icon name="chatbubbles-outline" size={25}/>)}} />
+            <Tab.Screen options={{headerShown: false}} name='CHAT' component={HomeScreen} options={{tabBarIcon: () => (<Icon name="chatbubbles-outline" size={25}/>)}} />
             <Tab.Screen options={{headerShown: false}} name='FRIEND' component={FriendListScreen} options={{tabBarIcon: () => (<Icon name="people-outline" size={25}/>)}} />
             <Tab.Screen options={{headerShown: false}} name='PROFILE' component={ProfileScreen} options={{tabBarIcon: () => (<Icon name="person-outline" size={25}/>)}} />
         </Tab.Navigator>

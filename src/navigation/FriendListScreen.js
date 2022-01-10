@@ -88,6 +88,10 @@ const FriendListScreen = ({ navigation }) => {
                     <StatusBar barStyle="dark-content" />
                     <FriendInfo nickname='잇프제' type='ISFJ' age='20' gender='여' navigation={navigation}/>
                     <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
             </View>
     );
 }

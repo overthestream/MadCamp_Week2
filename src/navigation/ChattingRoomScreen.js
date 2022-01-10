@@ -7,8 +7,19 @@ import { addFriend } from '../reducers/friend';
 
 //웹 소켓으로부터 받아온 Message를 넣으면 됨
 
-const renderActions = (addfriend) => { 
+const renderActions = (addfriend, navigation) => { 
   return(
+    <>
+    <Actions 
+      icon={() =>
+          <Icon name="log-out-outline" size={25}/>}
+      onPressActionButton={() => 
+                            { 
+                            //채팅방 나가기(채팅방 삭제)
+                            navigation.navigate('HomeScreen');
+                            }
+                          }
+      />
     <Actions 
       icon={() =>
           <Icon name="add-circle-outline" size={25}/>}
@@ -19,8 +30,9 @@ const renderActions = (addfriend) => {
                             alert('친구가 추가 됐습니다.')
 
                             }
-                          }
+                          }           
      />
+     </>
   );
 }
 
@@ -123,7 +135,7 @@ const ChattingRoomScreen = ({ navigation }) => {
           renderBubble={renderbubble}
           messages={messages}
           onSend={messages => onSend(messages)}
-          renderActions={() => renderActions(addfriend)}
+          renderActions={() => renderActions(addfriend, navigation)}
           renderSend={renderSend}
           placeholder='채팅을 입력하세요'
           loadEarlier={true}

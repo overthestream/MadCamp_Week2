@@ -83,7 +83,7 @@ const ChemiMatchScreen = ({ navigation }) => {
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
-                <Text style={{fontSize:25, fontWeight: 'bold', width: 300, marginLeft: 50, marginTop: 100}}>당신의 MBTI <Text style={{color: '#56A7A7'}}>{mbti}</Text>와 잘 맞는 MBTI는 {UserChemi()}입니다. 매칭을 시작하시겠습니까?</Text>
+                <Text style={{fontSize:22, fontWeight: 'bold', width: 300, marginLeft: 60, marginTop: 0}}>당신의 MBTI <Text style={{color: '#56A7A7'}}>{mbti}</Text>와 잘 맞는 MBTI는 {UserChemi()}입니다.매칭을 시작하시겠습니까?</Text>
                 <View style={{flexDirection: 'row'}}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('ChemiMatchLoadingScreen', { Mbtis: userchemi})}
@@ -125,7 +125,7 @@ const ChemiMatchScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F9FBFC',
+        backgroundColor: 'white',
         justifyContent: 'center',
     }
 })

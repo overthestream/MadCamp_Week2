@@ -6,10 +6,10 @@ const ProfileContent = ({ nickname, mbti, age, gender, image}) => {
     return(
         <View style={{marginLeft: 50}}>
             <Image source={image} style={{width: 200, height: 200, marginLeft: 50, marginBottom: 50}}/>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}> 닉네임 </Text>     {nickname}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
+            <Text style={{fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}> 닉네임 </Text>     {nickname}</Text>
+            <Text style={{fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
+            <Text style={{fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
+            <Text style={{fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
         </View>
     )
 }
@@ -26,14 +26,14 @@ const FriendDetailScreen = ({ route, navigation }) => {
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',
                     padding: 20,
-                    marginLeft: 100,
+                    marginLeft: 130,
                     marginTop: 50,
                     marginBottom: 20,
                     borderRadius: 30,
                     width: 150,
                     height: 60,
                 }}>
-                <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>채팅방 만들기</Text>
+                <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>채팅하기</Text>
             </TouchableOpacity>
         </View>
     );
