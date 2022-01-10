@@ -21,7 +21,8 @@ const SetNicknameScreen = ({ navigation }) => {
                 left: 100,
                 top: 100,
                 fontSize: 20,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontFamily: 'aTitleGothic'
             }}>닉네임을 입력해주세요.</Text>
             <View style={{ position: 'absolute', left: 110, top: 180}}>
                 <TextInput onChangeText={(text) => setNick(text)}
@@ -41,7 +42,7 @@ const SetNicknameScreen = ({ navigation }) => {
                             width: 150,
                             height: 60,
                     }}>
-                        <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>닉네임 설정</Text>
+                        <Text style={{fontFamily: 'aTitleGothic',fontSize: 17, textAlign: 'center', color: 'white'}}>닉네임 설정</Text>
                     </TouchableOpacity>
                 </View>
         </View>

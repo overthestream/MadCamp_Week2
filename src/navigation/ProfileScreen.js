@@ -61,11 +61,11 @@ const ProfileContent = ({ nickname, mbti, age, gender}) => {
         }, [mbti]);
     return(
         <View style={{marginLeft: 50}}>
-            <Image resizeMethod='resize' source={image} style={{width: 200, height: 200, marginLeft: 50, marginBottom: 50}}/>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}> 닉네임 </Text>     {nickname}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
-            <Text style={{fontSize: 20, marginBottom: 15}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
+            <Image resizeMethod='resize' source={image} style={{width: 200, height: 200, marginLeft: '10%', marginBottom: '7%'}}/>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}> 닉네임  </Text>     {nickname}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
         </View>
     )
 }
@@ -89,14 +89,14 @@ const ProfileScreen = ({ navigation }) => {
                         justifyContent: 'flex-end',
                         backgroundColor: '#56A7A7',
                         padding: 20,
-                        marginLeft: 100,
+                        marginLeft: '30%',
                         marginTop: 20,
                         marginBottom: 20,
                         borderRadius: 30,
                         width: 150,
                         height: 60,
                 }}>
-                    <Text style={{fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>수정하기</Text>
                 </TouchableOpacity>
         </View>
     );
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#56A7A7',
         color: 'white',
         textAlign: 'center',
+
     }
 })
 

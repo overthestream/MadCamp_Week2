@@ -32,24 +32,23 @@ const Stack = createStackNavigator();
 
 const StackNavigator = () => {
     return(
-            <Stack.Navigator initialRouteName='InitialScreen'
-                             he> 
+            <Stack.Navigator initialRouteName='InitialScreen'>
                 <Stack.Screen options={{headerShown: false}} name="InitialScreen" component={InitialScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="LoginScreen" component={LoginScreen}/>
-                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, paddingRight: 100}} source={require('../img/logo.png')}/>}} name="HomeScreen" component={TabNavigator}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="HomeScreen" component={TabNavigator}/>
                 <Stack.Screen options={{headerShown: false}} name="SignInScreen" component={SignInScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="SelectMatchScreen" component={SelectMatchScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="ChemiMatchScreen" component={ChemiMatchScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="ChattingRoomScreen" component={ChattingRoomScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="FriendDetailScreen" component={FriendDetailScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="EditProfileScreen" component={EditProfileScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="SelectMatchScreen" component={SelectMatchScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="ChemiMatchScreen" component={ChemiMatchScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="ChattingRoomScreen" component={ChattingRoomScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="FriendDetailScreen" component={FriendDetailScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="EditProfileScreen" component={EditProfileScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SetMbtiScreen" component={SetMbtiScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="SetNicknameScreen" component={SetNicknameScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="ProfileScreen" component={ProfileScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="ProfileScreen" component={ProfileScreen}/>
                 <Stack.Screen options={{headerShown: false}} name="ChattingListScreen" component={ChattingListSreen}/>
-                <Stack.Screen options={{headerShown: false}} name="FriendListScreen" component={FriendListScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="ChemiMatchLoadingScreen" component={ChemiMatchLoadingScreen}/>
-                <Stack.Screen options={{headerShown: false}} name="SelectMatchLoadingScreen" component={SelectMatchLoadingScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="FriendListScreen" component={FriendListScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="ChemiMatchLoadingScreen" component={ChemiMatchLoadingScreen}/>
+                <Stack.Screen options={{headerTitle: () => <Image style={{ width: 250, height: 220, marginTop: 80, marginLeft: '10%'}}  source={require('../img/logo.png')}/>, headerLeft:(props) => null}} name="SelectMatchLoadingScreen" component={SelectMatchLoadingScreen}/>
             </Stack.Navigator>
     )
 }

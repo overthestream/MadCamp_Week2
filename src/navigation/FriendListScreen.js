@@ -57,24 +57,24 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
         }, [type]);
         
         return(
-            <View>
+            <ScrollView>
                 <TouchableOpacity 
                     onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, gender: gender, image: image})}
                     style={styles.info}>
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>
-                        <Text style={{fontSize: 16, marginBottom: 10, marginTop: 20}}>
+                        <Text style={{fontFamily: 'aTitleGothic', fontSize: 16, marginBottom: 10, marginTop: 20}}>
                             <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#A0DBDB', backgroundColor: '#A0DBDB'}}>
-                                <Text style={{color: 'white'}}>닉네임</Text>
+                                <Text style={{fontFamily: 'aTitleGothic', color: 'white'}}>닉네임</Text>
                             </View>     {nickname}</Text>
                         <Text style={{fontSize: 16, marginBottom: 10, marginTop: 20}}>
                             <View style={{borderWidth: 3, borderRadius: 3, borderColor: '#A0DBDB', backgroundColor: '#A0DBDB'}}>
-                                <Text style={{color: 'white'}}>MBTI</Text>
+                                <Text style={{fontFamily: 'aTitleGothic', color: 'white'}}>MBTI</Text>
                             </View>      {type}</Text>
                     </View>
                 </TouchableOpacity>
                 <View style={{width: 500, height: 1, backgroundColor: '#808080', marginBottom: 30}}/>
-            </View>
+            </ScrollView>
             );
 
 }
@@ -87,6 +87,10 @@ const FriendListScreen = ({ navigation }) => {
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
                     <FriendInfo nickname='잇프제' type='ISFJ' age='20' gender='여' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
                     <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
             </View>
     );

@@ -32,14 +32,14 @@ const MBTIitem = ({type, imageResource}) => {
                             marginBottom: 20,
                             borderRadius: 50,
                             width: '10.5%',
-                            height: '37%',
+                            height: '40%',
                             borderWidth: 3,
                             borderStyle: 'dashed',
                             borderColor: selects== false ? '#808080' : '#A0DBDB',
                             alignItems: 'center' 
                         }}>
                         <Image source={imageResource} style={styles.image}/>
-                        <Text style={{fontSize: 28, textAlign: 'center', fontWeight: 'bold', color: '#808080'}}>{type}</Text>
+                        <Text style={{fontFamily: 'aTitleGothic',fontSize: 28, textAlign: 'center', fontWeight: 'bold', color: '#808080'}}>{type}</Text>
         </TouchableOpacity>
     );
 }
@@ -75,14 +75,14 @@ const SelectMatchScreen = ({ navigation }) => {
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',
-                    padding: 20,
-                    marginLeft: 100,
+                    padding: 10,
+                    marginLeft: '21%',
                     marginBottom: 20,
                     borderRadius: 30,
-                    width: 180,
-                    height: 70,
+                    width: 150,
+                    height: 50,
                 }}>
-                <Text style={{fontSize: 20, textAlign: 'center', color: 'white'}}>매칭 시작</Text>
+                <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, textAlign: 'center', color: 'white'}}>매칭 시작</Text>
             </TouchableOpacity>
         </View>
     );
