@@ -1,19 +1,7 @@
 import React, {useEffect} from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 import { useSelector } from 'react-redux'; 
 import {io} from 'socket.io-client'
-
-const E = 0b0000;
-const I = 0b1000;
-
-const S = 0b0000;
-const N = 0b0100;
-
-const T = 0b0000;
-const F = 0b0010;
-
-const J = 0b0000;
-const P = 0b0001;
 
 const map = ["I", "N", "F", "P"];
 
@@ -46,10 +34,19 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
     socket.on('match', (data) => {
         console.log(data);
         const { opponentSocket, opponentID, opponentMBTI, opponentGender, opponentAge} = data;
+    
+        navigation.navigate('RandomChattingScreen',{opponentSocket, opponentID, opponentMBTI, opponentGender, opponentAge, socket});
     })
     }, []);
     return(
-        <View><Text>매칭 중 ...</Text></View>
+        <View style={{
+            marginTop: '50%',
+            alignItems:'center'
+        }
+        }>
+            <ActivityIndicator size="large" color="#56A7A7"/>
+            <Text>매칭 중..</Text>
+        </View>
     )
 }
 
