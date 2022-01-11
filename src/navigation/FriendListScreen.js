@@ -1,7 +1,9 @@
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 import React, { Component, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image, ScrollView } from 'react-native';
 
-const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
+const FriendInfo = ({ nickname, type, age, gender, id, navigation }) => {
         const [image, setImage] = useState(require('../img/INTP.png'));
         useEffect(() => {
             switch(type){
@@ -59,7 +61,7 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
         return(
             <ScrollView>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('FriendDetailScreen', { nickname: nickname, type: type, age: age, gender: gender, image: image})}
+                    onPress={() => navigation.navigate('FriendDetailScreen', { id: id, nickname: nickname, type: type, age: age, gender: gender, image: image})}
                     style={styles.info}>
                     <Image source={image} style={{width: 110, height: 110}}/>
                     <View style={styles.content}>
@@ -79,19 +81,27 @@ const FriendInfo = ({ nickname, type, age, gender, navigation }) => {
 
 }
 
-const FriendListScreen = ({ navigation }) => {
+const FriendListScreen =   ({ navigation }) => {
 
-    //친구목록 데이터 불러오기
-
+    const state = useSelector((state) => state);
+    const [nodeList, setNodeList] = useState([]);
+    const { id } = state.user;
+    useEffect( ()=>{
+        const fetchData = async () => {
+          try { const result = await (await axios.get(`http://192.249.18.173:80/friend/get?id=${id}`)).data;
+          console.log(result);
+            const list = result.map((item) => {
+                return <FriendInfo id={item.add_to} nickname={item.nick} type={item.mbti} age={item.age} gender={item.gender == 'male' ? '남': '여'} navigation={navigation}/>
+            })
+            console.log(list);
+            setNodeList(list);} catch(err) {console.log(err);}
+        }
+        fetchData();
+    },[])
     return(
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
-                    <FriendInfo nickname='잇프제' type='ISFJ' age='20' gender='여' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
-                    <FriendInfo nickname='인팁남' type='INTP' age='27' gender='남' navigation={navigation}/>
+                    {nodeList}
             </View>
     );
 }

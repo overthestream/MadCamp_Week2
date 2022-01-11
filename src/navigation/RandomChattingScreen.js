@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { GiftedChat, InputToolbar, Bubble, Actions, Send } from 'react-native-gifted-chat';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { addFriend } from '../reducers/friend';
-
+import axios from 'axios'
 //웹 소켓으로부터 받아온 Message를 넣으면 됨
 
-const renderActions = (addfriend, navigation) => { 
+const renderActions = (addfriend, navigation, socket, uid, oid) => { 
   return(
     <>
     <Actions 
@@ -15,8 +15,8 @@ const renderActions = (addfriend, navigation) => {
           <Icon name="log-out-outline" size={25}/>}
       onPressActionButton={() => 
                             { 
-                            //채팅방 나가기(채팅방 삭제)
-                            navigation.navigate('HomeScreen');
+                              socket.disconnect();
+                              navigation.navigate('HomeScreen');
                             }
                           }
       />
@@ -25,7 +25,12 @@ const renderActions = (addfriend, navigation) => {
           <Icon name="add-circle-outline" size={25}/>}
       onPressActionButton={() => 
                             { 
-                            //친구 추가
+                            axios.put('http://192.249.18.173/friend/add',{
+                              body:{
+                                from: uid,
+                                to: oid
+                              }
+                            })
                             addfriend();
                             alert('친구가 추가 됐습니다.')
 
@@ -66,68 +71,43 @@ const renderbubble = props => {
   );
 }
 
-const RandomChattingScreen = ({ navigation }) => {
+const RandomChattingScreen = ({ navigation,  route }) => {
+    const { opponentSocket, opponentID, opponentMBTI, opponentGender, opponentAge, socket} = route.params;
     const [text, setText] = useState("");
     const [messages, setMessages] = useState([]);
     const state = useSelector((state) => state);
     const { id, nickname } = state.user;
-    
     const dispatch = useDispatch();
+    const [incre, setIncre] = useState(1);
 
-    //addFriend인자에 친구추가할 id 넣어주기
     const addfriend = () => {
-      dispatch(addFriend(2));
+      dispatch(addFriend(opponentID));
     };
 
     const user = {
         _id: id,
         name: nickname,
       };
-    /* 메시지 수신 부분
-    useEffect(() => {
-    socket.emit('loadMessages', {});
-    socket.on('loadMessages', msg => {
-      setMessages(msg);
-    })
-  }, []);
-    */
+      previousMessages => GiftedChat.append(previousMessages, messages);
       
-
     useEffect(() => {
-        setMessages([
-          {
-            _id: 1,
-            text: 'Hello developer',
-            createdAt: new Date(),
+      socket.on('receiveMsg', msg => {
+        setMessages(previousMessages => GiftedChat.append(previousMessages,{
+            _id: incre,
+            text: msg.message,
+            createdAt: msg.timestamp,
             user: {
               _id: 2,
-              name: 'React Native',
-              avatar: require('../img/INTP.png'),
-            },
-          },
-          {
-              _id: 2,
-              text: 'Hello Avatar',
-              createdAt: new Date(),
-              user,
-          },
-          {
-            _id: 3,
-            text: 'This is Test',
-            createdAt: new Date(),
-            user,
-          },
-          {
-            _id: 4,
-            text: 'This is Test2',
-            createdAt: new Date(),
-            user,
-        },
-        ])
-      }, [])
-
-      //메시지 송신 부분
+              name: opponentID,
+              avatar: require(`../img/INTP.png`),
+            }}));
+        setIncre(incre+1);
+      })
+    }, []);
+      
       const onSend = useCallback((messages = []) => {
+        setIncre(incre+1)
+        socket.emit('sendMsg',{message: messages[0].text, senderSocket: socket.id, receiverSocket: opponentSocket, timestamp: new Date()})
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
       }, [])
    
@@ -136,10 +116,10 @@ const RandomChattingScreen = ({ navigation }) => {
           renderBubble={renderbubble}
           messages={messages}
           onSend={messages => onSend(messages)}
-          renderActions={() => renderActions(addfriend, navigation)}
+          renderActions={() => renderActions(addfriend, navigation, socket, id, opponentID)}
           renderSend={renderSend}
           placeholder='채팅을 입력하세요'
-          loadEarlier={true}
+          loadEarlier={false}
           user={user}
         />
       );
