@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, BackHandler } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { GiftedChat, InputToolbar, Bubble, Actions, Send } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble, Actions, Send } from 'react-native-gifted-chat';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { addFriend } from '../reducers/friend';
-import axios from 'axios'
+import axios from 'axios';
+import Popup from './DisconnectPopup';
 //웹 소켓으로부터 받아온 Message를 넣으면 됨
 
 const renderActions = (addfriend, navigation, socket) => { 
@@ -74,6 +75,7 @@ const RandomChattingScreen = ({ navigation,  route }) => {
     const { id, nickname } = state.user;
     const dispatch = useDispatch();
     const [incre, setIncre] = useState(1);
+    const [modalVisible, setModalVisible] = useState(false);
 
     const addfriend = () => {
       axios.post('http://192.249.18.173/friend/add', {
@@ -93,8 +95,7 @@ const RandomChattingScreen = ({ navigation,  route }) => {
       
     useEffect(() => {
       socket.on('opponentDisconnected!', id => {
-       ////// / tba
-        
+       setModalVisible(true);
       })
       socket.on('receiveMsg', msg => {
         setMessages(previousMessages => GiftedChat.append(previousMessages,{
@@ -124,6 +125,7 @@ const RandomChattingScreen = ({ navigation,  route }) => {
       }, [])
    
     return (
+      <>
         <GiftedChat
           renderBubble={renderbubble}
           messages={messages}
@@ -134,6 +136,8 @@ const RandomChattingScreen = ({ navigation,  route }) => {
           loadEarlier={false}
           user={user}
         />
+        <Popup visible={modalVisible} close={() => {setModalVisible(false);}} navigation={navigation}/>
+      </>
       );
 
 }
