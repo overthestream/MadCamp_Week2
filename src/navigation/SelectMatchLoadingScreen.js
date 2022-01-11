@@ -10,8 +10,11 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
     const state = useSelector(state => (state));
     const { select } = state.select;
 
-    const { id, gender, age, mbti } = state.user
+    const { id, gender, age, mbti } = state.user;
     console.log(select);
+    if(select.toString() == ''){
+        console.log('null');
+    }
     let selected=0;
     for(let i=0; i<select.length; ++i){
         let mappedVal = 0;

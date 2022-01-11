@@ -52,4 +52,6 @@ const StackNavigator = () => {
     )
 }
 
+console.disableYellowBox = true;
+
 export { StackNavigator };

@@ -6,7 +6,19 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {io} from 'socket.io-client'
 import axios from 'axios';
 
-//웹 소켓으로부터 받아온 Message를 넣으면 됨
+const renderActions = (navigation) => { 
+  return(
+    <Actions 
+      icon={() =>
+          <Icon name="log-out-outline" size={25}/>}
+      onPressActionButton={() => 
+                            { 
+                              navigation.navigate('HomeScreen');
+                            }
+                          }
+      />
+  );
+}
 
 const renderSend = props => {
   return(
@@ -112,6 +124,7 @@ const FriendChattingScreen = ({ navigation, route }) => {
    
     return (
         <GiftedChat
+          renderActions={() => renderActions(navigation)}
           renderBubble={renderbubble}
           messages={messages}
           onSend={messages => onSend(messages)}

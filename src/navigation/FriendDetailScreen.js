@@ -7,9 +7,9 @@ const ProfileContent = ({ nickname, mbti, age, gender, image}) => {
         <View style={{marginLeft: 50}}>
             <Image source={image} style={{width: 200, height: 200, marginLeft: '10%', marginBottom: '7%'}}/>
             <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}> 닉네임  </Text>     {nickname}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}> MBTI  </Text>      {mbti}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}>  나이   </Text>      {age}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: '10%'}}><Text style={styles.title}>  성별   </Text>      {gender}</Text>
         </View>
     )
 }
@@ -20,21 +20,39 @@ const FriendDetailScreen = ({ route, navigation }) => {
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
                 <ProfileContent nickname={nickname} mbti={type} age={age} gender={gender} image={image}/>
-                <TouchableOpacity
-                onPress={() => navigation.navigate('FriendChattingScreen', {friendId: id})}
-                style={{
-                    justifyContent: 'flex-end',
-                    backgroundColor: '#56A7A7',
-                    padding: 20,
-                    marginLeft: '30%',
-                    marginTop: 50,
-                    marginBottom: 20,
-                    borderRadius: 30,
-                    width: 150,
-                    height: 60,
-                }}>
-                <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>채팅하기</Text>
-            </TouchableOpacity>
+                <View style={{flexDirection: 'row'}}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('FriendChattingScreen', {friendId: id})}
+                        style={{
+                            justifyContent: 'flex-end',
+                            backgroundColor: '#56A7A7',
+                            padding: 20,
+                            marginLeft: '10%',
+                            marginTop: 50,
+                            marginBottom: 20,
+                            borderRadius: 30,
+                            width: 125,
+                            height: 60,
+                    }}>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>채팅하기</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.goBack()}
+                        style={{
+                            justifyContent: 'flex-end',
+                            backgroundColor: '#56A7A7',
+                            padding: 20,
+                            marginLeft: '10%',
+                            marginTop: 50,
+                            marginBottom: 20,
+                            borderRadius: 30,
+                            width: 125,
+                            height: 60,
+                    }}>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>뒤로가기</Text>
+                    </TouchableOpacity>
+                    
+                </View>
         </View>
     );
 }
