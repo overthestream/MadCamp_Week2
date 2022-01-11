@@ -98,12 +98,20 @@ const FriendListScreen =   ({ navigation }) => {
         }
         fetchData();
     },[])
-    return(
+
+    if (nodeList.toString() == ''){
+        return(
+            <Text style={{marginTop: '50%',fontFamily: 'aTitleGothic', fontSize: 20, textAlign: 'center'}}>친구가 없습니다 !</Text>
+        );
+        
+    } else{
+        return(
             <View style={styles.container}>
                     <StatusBar barStyle="dark-content" />
                     {nodeList}
             </View>
-    );
+        );
+    }  
 }
 
 const styles = StyleSheet.create({

@@ -12,9 +12,6 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
 
     const { id, gender, age, mbti } = state.user;
     console.log(select);
-    if(select.toString() == ''){
-        console.log('null');
-    }
     let selected=0;
     for(let i=0; i<select.length; ++i){
         let mappedVal = 0;
@@ -50,15 +47,32 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
 
 
 
-    const selectAlert = () => {
-        console.log('empty select');
-        alert('한 개 이상의 MBTI를 선택해주세요');
-        navigation.goBack();
-    }
-
-    if (select === []){
+    
+    if (select.toString() == ''){
         console.log('null select');
-        return {selectAlert};
+        return (
+        <>
+        <Text style={{marginTop: '50%',fontFamily: 'aTitleGothic', fontSize: 20, textAlign: 'center'}}>한 개 이상의 MBTI를 선택해주세요 !</Text>
+        <TouchableOpacity
+                    onPress={() => { 
+                        navigation.goBack();
+                    }}
+                    style={{
+                        justifyContent: 'flex-end',
+                        backgroundColor: '#56A7A7',
+                        padding: 20,
+                        marginTop: '10%',
+                        marginLeft: '25%',
+                        marginBottom: 20,
+                        borderRadius: 30,
+                        width: 150,
+                        height: 60,
+                }}>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>확인</Text>
+                </TouchableOpacity>
+        </>
+        )
+
     }
     else{
         return(
