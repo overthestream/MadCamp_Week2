@@ -19,8 +19,12 @@ const ChemiMatchLoadingScreen = ({ route, navigation }) => {
         }
         selected |= 1<< mappedVal;
     }
+     let disconnectSocket;
     useEffect(() => {
     const socket = io('http://192.249.18.173:80');
+    disconnectSocket= () => {
+        socket.disconnect();
+    }
     socket.on('connect', (io) => {
         console.log('connected');
         socket.emit('init', {
@@ -48,7 +52,7 @@ const ChemiMatchLoadingScreen = ({ route, navigation }) => {
             <Text>매칭 중..</Text>
             <TouchableOpacity
                     onPress={() => { 
-                        socket.disconnect();
+                        disconnectSocket();
                         navigation.goBack();
                     }}
                     style={{
