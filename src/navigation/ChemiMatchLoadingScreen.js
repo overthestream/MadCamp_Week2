@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator , TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'; 
 import {io} from 'socket.io-client'
 
@@ -46,6 +46,23 @@ const ChemiMatchLoadingScreen = ({ route, navigation }) => {
         }>
             <ActivityIndicator size="large" color="#56A7A7"/>
             <Text>매칭 중..</Text>
+            <TouchableOpacity
+                    onPress={() => { 
+                        //매칭 취소
+                        navigation.goBack();
+                    }}
+                    style={{
+                        justifyContent: 'flex-end',
+                        backgroundColor: '#56A7A7',
+                        padding: 20,
+                        marginTop: '50%',
+                        marginBottom: 20,
+                        borderRadius: 30,
+                        width: 150,
+                        height: 60,
+                }}>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>매칭 취소</Text>
+                </TouchableOpacity>
         </View>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, BackHandler } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { GiftedChat, InputToolbar, Bubble, Actions, Send } from 'react-native-gifted-chat';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -103,6 +103,13 @@ const RandomChattingScreen = ({ navigation,  route }) => {
             }}));
         setIncre(incre+1);
       })
+
+      const backAction = () => { return true; };
+      const backHandler = BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction);
+
+      return () => backHandler.remove();
     }, []);
       
       const onSend = useCallback((messages = []) => {

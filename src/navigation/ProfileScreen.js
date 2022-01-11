@@ -63,9 +63,9 @@ const ProfileContent = ({ nickname, mbti, age, gender}) => {
         <View style={{marginLeft: 50}}>
             <Image resizeMethod='resize' source={image} style={{width: 200, height: 200, marginLeft: '10%', marginBottom: '7%'}}/>
             <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}> 닉네임  </Text>     {nickname}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>  MBTI  </Text>       {mbti}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   나이   </Text>         {age}</Text>
-            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>   성별   </Text>         {gender}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}> MBTI  </Text>      {mbti}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>  나이   </Text>      {age}</Text>
+            <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, marginBottom: 15, marginLeft: 40}}><Text style={styles.title}>  성별   </Text>      {gender}</Text>
         </View>
     )
 }

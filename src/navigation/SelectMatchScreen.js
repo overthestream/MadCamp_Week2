@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, delet } from '../reducers/select';
+import { add, delet, reset } from '../reducers/select';
 
 
 const MBTIitem = ({type, imageResource}) => {
@@ -20,9 +20,9 @@ const MBTIitem = ({type, imageResource}) => {
         <TouchableOpacity
                         onPress={() => { setSelect(!selects);
                                          if(selects){
-                                             deleteMbti({type});}
+                                             deleteMbti(type);}
                                          else{
-                                             addMbti({type});}
+                                             addMbti(type);}
                                             }}
 
                         style={{
@@ -45,6 +45,12 @@ const MBTIitem = ({type, imageResource}) => {
 }
 
 const SelectMatchScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
+
+    const resetMbti = () => {
+        dispatch(reset());
+    }
+
     return(
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}
@@ -70,20 +76,39 @@ const SelectMatchScreen = ({ navigation }) => {
                 <MBTIitem type="ESFP" imageResource={require("../img/ESFP.png")}/>
                 <MBTIitem type="ESFJ" imageResource={require("../img/ESFJ.png")}/>
             </ScrollView>
+            <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
                 onPress={() => navigation.navigate("SelectMatchLoadingScreen")}
                 style={{
                     justifyContent: 'flex-end',
                     backgroundColor: '#56A7A7',
                     padding: 10,
-                    marginLeft: '21%',
                     marginBottom: 20,
+                    marginLeft: '10%',
                     borderRadius: 30,
-                    width: 150,
+                    width: 120,
                     height: 50,
                 }}>
                 <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, textAlign: 'center', color: 'white'}}>매칭 시작</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => { navigation.goBack();
+                                 resetMbti();
+                }
+                            }
+                style={{
+                    justifyContent: 'flex-end',
+                    backgroundColor: '#56A7A7',
+                    padding: 10,
+                    marginBottom: 20,
+                    marginLeft: '5%',
+                    borderRadius: 30,
+                    width: 120,
+                    height: 50,
+                }}>
+                <Text style={{fontFamily: 'aTitleGothic', fontSize: 20, textAlign: 'center', color: 'white'}}>취소</Text>
+            </TouchableOpacity>
+            </View>
         </View>
     );
 }

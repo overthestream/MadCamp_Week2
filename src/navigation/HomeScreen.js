@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image, BackHandler } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
+    
     return(
         <View style={styles.container}>
                 <StatusBar barStyle="dark-content" />
