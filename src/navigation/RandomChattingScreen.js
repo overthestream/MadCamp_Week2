@@ -79,10 +79,10 @@ const RandomChattingScreen = ({ navigation,  route }) => {
 
     const addfriend = () => {
       axios.post('http://192.249.18.173/friend/add', {
-        body:{
+       
           from:id,
           to:opponentID
-        }
+        
       })
       dispatch(addFriend(opponentID));
     };
