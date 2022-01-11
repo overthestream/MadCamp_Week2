@@ -7,7 +7,7 @@ import { addFriend } from '../reducers/friend';
 import axios from 'axios'
 //웹 소켓으로부터 받아온 Message를 넣으면 됨
 
-const renderActions = (addfriend, navigation, socket, uid, oid) => { 
+const renderActions = (addfriend, navigation, socket) => { 
   return(
     <>
     <Actions 
@@ -25,12 +25,7 @@ const renderActions = (addfriend, navigation, socket, uid, oid) => {
           <Icon name="add-circle-outline" size={25}/>}
       onPressActionButton={() => 
                             { 
-                            axios.put('http://192.249.18.173/friend/add',{
-                              body:{
-                                from: uid,
-                                to: oid
-                              }
-                            })
+                  
                             addfriend();
                             alert('친구가 추가 됐습니다.')
 
@@ -81,6 +76,12 @@ const RandomChattingScreen = ({ navigation,  route }) => {
     const [incre, setIncre] = useState(1);
 
     const addfriend = () => {
+      axios.post('http://192.249.18.173/friend/add', {
+        body:{
+          from:id,
+          to:opponentID
+        }
+      })
       dispatch(addFriend(opponentID));
     };
 
@@ -91,6 +92,10 @@ const RandomChattingScreen = ({ navigation,  route }) => {
       previousMessages => GiftedChat.append(previousMessages, messages);
       
     useEffect(() => {
+      socket.on('opponentDisconnected!', id => {
+       ////// / tba
+        
+      })
       socket.on('receiveMsg', msg => {
         setMessages(previousMessages => GiftedChat.append(previousMessages,{
             _id: incre,
@@ -116,7 +121,7 @@ const RandomChattingScreen = ({ navigation,  route }) => {
           renderBubble={renderbubble}
           messages={messages}
           onSend={messages => onSend(messages)}
-          renderActions={() => renderActions(addfriend, navigation, socket, id, opponentID)}
+          renderActions={() => renderActions(addfriend, navigation, socket)}
           renderSend={renderSend}
           placeholder='채팅을 입력하세요'
           loadEarlier={false}

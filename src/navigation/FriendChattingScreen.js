@@ -86,7 +86,8 @@ const FriendChattingScreen = ({ navigation, route }) => {
       socket.on('connect', (io) => {
           console.log('connected');
       })
-      socket.on('receiveMsg', msg => {
+      socket.on('receiveTalk', msg => {
+        if(msg.receiverID ==id){
         setMessages(previousMessages => GiftedChat.append(previousMessages,{
             _id: incre,
             text: msg.message,
@@ -97,6 +98,7 @@ const FriendChattingScreen = ({ navigation, route }) => {
               avatar: require(`../img/INTP.png`),
             }}));
         setIncre(incre+1);
+          }
       })
     }, []);
 
