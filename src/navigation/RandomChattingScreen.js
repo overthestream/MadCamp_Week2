@@ -78,12 +78,7 @@ const RandomChattingScreen = ({ navigation,  route }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const addfriend = () => {
-      axios.post('http://192.249.18.173/friend/add', {
-       
-          from:id,
-          to:opponentID
-        
-      })
+      axios.post(`http://192.249.18.173/friend/add?from=${id}&to=${opponentID}`);
       dispatch(addFriend(opponentID));
     };
 
