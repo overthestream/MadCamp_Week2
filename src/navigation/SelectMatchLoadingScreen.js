@@ -47,39 +47,39 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
         navigation.goBack();
     }
 
-
-    return(
-        <>
-        {
-            select===[] ? {selectAlert} : (
-         <View style={{
-           marginTop: '50%',
-            alignItems:'center'
-        }}>
-            <ActivityIndicator size="large" color="#56A7A7"/>
-            <Text>매칭 중..</Text>
-            <TouchableOpacity
-                onPress={() => { 
-                    //매칭 취소
-                    navigation.goBack();
-                }}
-                style={{
-                    justifyContent: 'flex-end',
-                    backgroundColor: '#56A7A7',
-                    padding: 20,
-                    marginTop: '50%',
-                    marginBottom: 20,
-                    borderRadius: 30,
-                    width: 150,
-                    height: 60,
-            }}>
-                <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>매칭 취소</Text>
-            </TouchableOpacity>
-        </View>
-            )
-        }
-        </>
-    )
+    if (select === []){
+        console.log('null select');
+        return {selectAlert};
+    }
+    else{
+        return(
+            <View style={{
+                marginTop: '50%',
+                alignItems:'center'
+            }
+            }>
+                <ActivityIndicator size="large" color="#56A7A7"/>
+                <Text>매칭 중..</Text>
+                <TouchableOpacity
+                    onPress={() => { 
+                        socket.disconnect();
+                        navigation.goBack();
+                    }}
+                    style={{
+                        justifyContent: 'flex-end',
+                        backgroundColor: '#56A7A7',
+                        padding: 20,
+                        marginTop: '50%',
+                        marginBottom: 20,
+                        borderRadius: 30,
+                        width: 150,
+                        height: 60,
+                }}>
+                    <Text style={{fontFamily: 'aTitleGothic', fontSize: 17, textAlign: 'center', color: 'white'}}>매칭 취소</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    };
 }
 
 
