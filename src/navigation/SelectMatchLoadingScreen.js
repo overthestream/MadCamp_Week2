@@ -21,8 +21,12 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
         }
         selected |= 1<< mappedVal;
     }
+    let disconnectSocket;
     useEffect(() => {
     const socket = io('http://192.249.18.173:80');
+    disconnectSocket = () => {
+        socket.disconnect();
+    }
     socket.on('connect', (io) => {
         console.log('connected');
         socket.emit('init', {
@@ -40,6 +44,8 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
         navigation.navigate('RandomChattingScreen',{opponentSocket, opponentID, opponentMBTI, opponentGender, opponentAge, socket});
     })
     }, []);
+
+
 
     const selectAlert = () => {
         console.log('empty select');
@@ -62,7 +68,7 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
                 <Text>매칭 중..</Text>
                 <TouchableOpacity
                     onPress={() => { 
-                        socket.disconnect();
+                        disconnectSocket();
                         navigation.goBack();
                     }}
                     style={{
