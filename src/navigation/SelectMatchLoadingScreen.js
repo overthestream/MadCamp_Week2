@@ -61,7 +61,7 @@ const SelectMatchLoadingScreen = ({ route, navigation }) => {
                 <Text>매칭 중..</Text>
                 <TouchableOpacity
                     onPress={() => { 
-                        //매칭 취소
+                        socket.disconnect();
                         navigation.goBack();
                     }}
                     style={{
